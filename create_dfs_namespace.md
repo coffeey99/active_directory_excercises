@@ -1,9 +1,7 @@
 # Erstellung eines DFS-Namespaces mit dem Namen „Firmendaten“ auf Server2
-# Create a DFS namespace named “Company Data” on Server2
+# *Create a DFS namespace named “Company Data” on Server2*
 
 ## Das Prinzip von DFS (Distributed File System)
-
-## Distributed File System (DFS)
 
 ### Grundidee
 Ein Distributed File System speichert Dateien verteilt auf mehreren Rechnern, lässt sie für Nutzer und Programme aber wie ein einziges, normales Dateisystem aussehen.
@@ -342,6 +340,9 @@ Beide Namespaceserver sind nun in der Konsole im mittleren Fenster unter „Name
 
 ## Aktivierung der zugriffsbasierten Aufzählung im DFS-Namespace „Firmendaten“ und Änderung der Dauer der Zwischenspeicherung des Ordnerziels im Client-Cache auf 360 Sekunden.  
 *Enabling access-based enumeration in the “Company Data” DFS namespace and changing the duration of the folder destination cache to 360 seconds.*
+
+Server2 --> Server-Manager --> Tools --> DFS-Verwaltung  
+*Server2 --> Server-Manager --> Tools --> DFS Management*
 
 <img width="692" height="702" alt="image" src="https://github.com/user-attachments/assets/77ed4bfc-53a1-411c-9eab-d5ff39ef01ce" />
 
