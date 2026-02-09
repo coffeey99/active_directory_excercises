@@ -343,7 +343,128 @@ Beide Namespaceserver sind nun in der Konsole im mittleren Fenster unter „Name
 ## Aktivierung der zugriffsbasierten Aufzählung im DFS-Namespace „Firmendaten“ und Änderung der Dauer der Zwischenspeicherung des Ordnerziels im Client-Cache auf 360 Sekunden.  
 *Enabling access-based enumeration in the “Company Data” DFS namespace and changing the duration of the folder destination cache to 360 seconds.*
 
-Server2 --> Tools --> DFS-Verwaltung  
-*Server2 --> Tools --> DFS Management*
+<img width="692" height="702" alt="image" src="https://github.com/user-attachments/assets/77ed4bfc-53a1-411c-9eab-d5ff39ef01ce" />
+
+<img width="490" height="566" alt="image" src="https://github.com/user-attachments/assets/0f8344ed-3d3f-453b-a7c5-d8fcba1d2b99" />
+
+Haken vor „Zugriffsbasierte Aufzählung für diesen Namespace aktivieren“ + Übernehmen + OK  
+*Check the box next to “Enable access-based enumeration for this namespace.” + Apply + OK*
+
+<img width="495" height="563" alt="image" src="https://github.com/user-attachments/assets/ead82714-1900-40ff-b358-425d40d86177" />
+
+### Anmeldung als „Karl Klammer“ auf „W11“ und Mapping des DFS-Namespaces „Firmendaten“.  
+*Log in as “Karl Klammer” on ‘W11’ and map the DFS namespace “Firmendaten”.*
+
+<img width="810" height="653" alt="image" src="https://github.com/user-attachments/assets/dd736738-c8a2-466f-b44b-9381b84be7fd" />
+
+Windows Explorer --> Klicken Sie auf "Dieser PC" --> Rechte Maustaste --> "Weitere Optionen anzeigen" ---> Netzlaufwerk verbinden  
+*Windows Explorer --> Click on “This PC” --> Right-click --> “Show more options” ---> Map network drive*
+
+<img width="560" height="552" alt="image" src="https://github.com/user-attachments/assets/70c44d44-9852-42db-add8-c0748f52156c" />
+
+<img width="335" height="374" alt="image" src="https://github.com/user-attachments/assets/9c79a2c3-6142-43f4-b176-05832513c228" />
+
+Netzwerk-Adresse des Ordners eintragen + Fertigstellen  
+*Enter the network address of the folder + Finish*
+
+<img width="757" height="560" alt="image" src="https://github.com/user-attachments/assets/bf5a3432-326d-41f8-bd09-d5194e0bf4a2" />
+
+<img width="975" height="631" alt="image" src="https://github.com/user-attachments/assets/aee73799-2a8f-4824-8d50-58c4a4f4f758" />
+
+<img width="708" height="328" alt="image" src="https://github.com/user-attachments/assets/0f28679c-10d4-4922-9e32-1cba5ae68493" />
+
+## Aktivierung des Features „BranchCache“ auf Server2.  
+## Anpassung der „Default Domain Policy“, damit Clients den gehosteten Cache nutzen können.
+## Entsprechende Konfiguration der Firewall auf „W11“.
+
+## *Activation of the “BranchCache” feature on Server2.*
+## *Adjustment of the “Default Domain Policy” so that clients can use the hosted cache.*
+## *Corresponding configuration of the firewall on “W11”.*
+
+Server2 --> Server-Manager --> Verwalten --> Rollen und Features hinzufügen  
+*Server2 --> Server Manager --> Manage --> Add roles and features*
+
+Bei Features, BranchCache auswählen  
+*For features, select BranchCache*
+
+<img width="973" height="695" alt="image" src="https://github.com/user-attachments/assets/7aa99ea0-31ca-4747-a0a8-c752ee05c575" />
+
+Installieren  
+*Install*
+
+<img width="971" height="701" alt="image" src="https://github.com/user-attachments/assets/90d2032f-90cd-4347-a1ca-979e0fb842cc" />
+
+### Einrichten der Gruppenrichtlinie
+### *Setting up the group policy*
+
+Wechseln zu "DC" --> Server-Manager --> Tools --> Gruppenrichtlinienverwaltung  
+*Switch to “DC” --> Server Manager --> Tools --> Group Policy Management*
+
+<img width="1278" height="569" alt="image" src="https://github.com/user-attachments/assets/6c3089b9-d73f-4bc8-98bc-9fa1cea81700" />
+
+OK
+
+<img width="940" height="656" alt="image" src="https://github.com/user-attachments/assets/c8da93f8-9a91-4f61-9086-dee2e16ca54c" />
+
+Rechte Maustaste auf "BranchCache" und Bearbeiten  
+*Right-click on “BranchCache” and select Edit.*
+
+Navigieren Sie zu Computerkonfiguration --> Richtlinien --> Administrative Vorlagen --> Netzwerk --> BranchCache  
+*Navigate to Computer Configuration --> Policies --> Administrative Templates --> Network --> BranchCache*
+
+<img width="978" height="570" alt="image" src="https://github.com/user-attachments/assets/38842d06-32a7-4994-8d40-f0be38e5bce9" />
+
+BranchCache --> Bearbeiten  
+*BranchCache --> Edit*
+
+<img width="981" height="489" alt="image" src="https://github.com/user-attachments/assets/18a47eba-78a0-4968-834b-2f72a0427301" />
+
+Aktiviert + Übernehmen + OK  
+*Enable + Apply + OK* 
+
+<img width="848" height="791" alt="image" src="https://github.com/user-attachments/assets/5fa62e8a-9d2b-4c1b-ba39-b2929db3b131" />
+
+Gehostete Cacheserver konfigurieren   
+Configure hosted cache servers+
+
+<img width="982" height="563" alt="image" src="https://github.com/user-attachments/assets/2903f8d8-9870-42d2-8d86-308b51b8c20e" />
+
+Aktiviert + auf "Gehostete Cacheserver" klicken  
+*Enable + click on “Hosted cache servers”*
+
+<img width="851" height="531" alt="image" src="https://github.com/user-attachments/assets/0561d6d2-a6b6-4fcb-9753-2b19b41905e3" />
+
+Eingabe: Server2 + OK --> Übernehmen + OK  
+*Input: Server2 + OK --> Apply + OK*
+
+<img width="608" height="415" alt="image" src="https://github.com/user-attachments/assets/5fcab61c-e2b5-4276-8da7-c130665ed9c2" />
+
+BranchCache-Modus "Gehosteter Cache" festlegen aktivieren und Server2 eintragen + Übernehmen + OK  
+*Set BranchCache mode to “Hosted Cache,” enable, and enter Server2 + Apply + OK*
+
+<img width="740" height="347" alt="image" src="https://github.com/user-attachments/assets/0e031a45-5d7b-4676-8c0c-d937b4141481" />
+
+<img width="855" height="450" alt="image" src="https://github.com/user-attachments/assets/2839d964-6307-45cf-a30b-8e629b5cd60b" />
+
+### Konfiguration der Firewall auf W11
+### *Configuring the firewall on W11*
+
+Klicken Sie in der Taskleiste auf die Lupe --> Tippen Sie „Fire“ ein --> Wählen Sie "Windows Defender Firewall mit erweiterter Sicherheit" --> Als Administrator ausführen  
+*Click on the magnifying glass in the taskbar --> Type in “Fire” --> Select “Windows Defender Firewall with Advanced Security” --> Run as administrator*
+
+Geben Sie die Anmeldedaten des Domänenadministrators an  
+*Enter the domain administrator's login details*
+
+<img width="560" height="733" alt="image" src="https://github.com/user-attachments/assets/fa3cce21-7826-4924-982f-1fef6a13aea5" />
+
+Wählen Sie auf der linken Seite des Fensters --> Ausgehende Regeln --> Öffnen Sie die Regel BranchCache – Inhaltsabruf (http ausgehend) --> Wählen Sie "Aktiviert"  
+*On the left side of the window, select Outgoing Rules --> Open the BranchCache - Content Retrieval (http outgoing) rule --> Select “Enabled.”*
+
+<img width="1032" height="545" alt="image" src="https://github.com/user-attachments/assets/4d558753-a922-4a45-a774-ff596adfe4cc" />
+
+
+
+
+
 
 
