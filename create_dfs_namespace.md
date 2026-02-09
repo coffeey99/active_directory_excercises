@@ -1,5 +1,5 @@
-# Erstellung eines DFS-Namespaces mit dem Namen „Firmendaten“ auf Server2.
-# Create a DFS namespace named “Company Data” on Server2.
+## Erstellung eines DFS-Namespaces mit dem Namen „Firmendaten“ auf Server2.
+## Create a DFS namespace named “Company Data” on Server2.
 
 Das Prinzip von DFS (Distributed File System)
 
