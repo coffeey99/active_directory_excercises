@@ -1,0 +1,48 @@
+# Erstellung eines DFS-Namespaces mit dem Namen „Firmendaten“ auf Server2.
+# Create a DFS namespace named “Company Data” on Server2.
+
+Das Prinzip von DFS (Distributed File System)
+
+Distributed File System (DFS) 👇
+Grundidee
+Ein Distributed File System speichert Dateien verteilt auf mehreren Rechnern, lässt sie für Nutzer und Programme aber wie ein einziges, normales Dateisystem aussehen.
+Wie es funktioniert
+	• Dateien werden in Blöcke zerlegt
+	• Blöcke liegen auf verschiedenen Servern (Nodes)
+	• Ein zentrales oder verteiltes Metadaten-System weiß:
+		○ wo welcher Block liegt
+		○ wem die Datei gehört
+		○ welche Zugriffsrechte gelten
+	• Clients greifen transparent darauf zu, als wäre es lokal
+Zentrale Eigenschaften
+	• Skalierbar: Speicher wächst mit neuen Nodes
+	• Fehlertolerant: Replikation der Daten
+	• Parallelzugriffe möglich
+	• Ortstransparenz (User muss Speicherort nicht kennen)
+Typische Architekturen
+	• Master–Worker
+		○ Master: Metadaten
+		○ Worker: eigentliche Daten
+		○ Beispiel: HDFS
+	• Voll verteilt (Peer-to-Peer)
+		○ kein zentraler Master
+		○ Beispiel: Ceph
+Beispiele
+	• HDFS (Hadoop Distributed File System)
+	• NFS (Network File System)
+	• Ceph FS
+	• GlusterFS
+Vorteile
+	• Hohe Verfügbarkeit
+	• Große Datenmengen handhabbar
+	• Gute Performance bei parallelem Lesen
+Nachteile
+	• Komplexe Verwaltung
+	• Netzwerkabhängig
+	• Konsistenz schwieriger als lokal
+Typische Einsatzgebiete
+	• Big-Data-Analyse
+	• Cloud-Speicher
+	• Unternehmensnetzwerke
+	• Hochverfügbare Systeme
+
