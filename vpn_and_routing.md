@@ -471,4 +471,123 @@ Server2 --> Routing and RAS --> RAS-Clients:
 DC --> Server-Manager --> Tools --> Active Directory-Benutzer und -Computer:  
 *DC --> Server Manager --> Tools --> Active Directory Users and Computers:*
 
+<img width="508" height="668" alt="image" src="https://github.com/user-attachments/assets/4c973e96-7e6b-48a3-9c00-af211317848e" />
+
+Übernehmen + OK  
+*Apply + OK*
+
+<img width="979" height="543" alt="image" src="https://github.com/user-attachments/assets/f98efdbc-308f-45ad-9bcf-05d9d02a0dc1" />
+
+### Ändern der Zugriffsrichtlinie „Verbindung mit dem Microsoft Routing- und RAS-Server“  
+### *Changing the “Connect to Microsoft Routing and RAS Server” access policy*
+
+<img width="405" height="525" alt="image" src="https://github.com/user-attachments/assets/13a82936-b98b-4f2c-94d0-abad3921caef" />
+
+<img width="904" height="504" alt="image" src="https://github.com/user-attachments/assets/11d758ad-92d3-4de6-8298-98b8ca8c3651" />
+
+<img width="884" height="704" alt="image" src="https://github.com/user-attachments/assets/1fcc9c99-f85e-449b-a9dc-41656fa81341" />
+
+<img width="907" height="753" alt="image" src="https://github.com/user-attachments/assets/f034790c-ff30-4498-bedd-862d0d106c30" />
+
+Übernehmen + OK  
+*Apply + OK*
+
+
+Hinweis: Die NPS-Richtlinie „Verbindungen mit Microsoft-Routing- und Remotezugriffsserver“ wird automatisch für RAS-Verbindungen genutzt;
+die Bedingung MS-RAS-Hersteller-ID = ^311$ steht für Microsoft RAS-Clients, also Geräte, die sich per VPN oder Einwahl über RRAS mit 
+dem Server verbinden (z. B. via SSTP, L2TP oder PPTP).
+
+
+*Note: The NPS policy “Connections with Microsoft Routing and Remote Access Server” is automatically applied for RAS connections; the condition*  
+MS-RAS-Manufacturer-ID = ^311$ *identifies Microsoft RAS clients, i.e., devices connecting to the server via VPN or dial-up through 
+RRAS (e.g., SSTP, L2TP, or PPTP).*
+
+
+### Testen des Zugriffs  
+### *Testing access*
+
+<img width="1006" height="342" alt="image" src="https://github.com/user-attachments/assets/4fc82535-105f-44df-866a-5a9d45f60b2c" />
+
+<img width="984" height="577" alt="image" src="https://github.com/user-attachments/assets/c2b7af81-7483-49a4-acb7-09b7b08f9151" />
+
+<img width="708" height="606" alt="image" src="https://github.com/user-attachments/assets/14d70c6b-53f9-4240-a744-ab2dc05389a1" />
+
+### Erstellen der neuen Zugriffsrichtlinie  
+### *Creating the new access policy*
+
+<img width="1130" height="630" alt="image" src="https://github.com/user-attachments/assets/fcf402ac-3288-4a88-9766-7b7e332897aa" />
+
+<img width="898" height="755" alt="image" src="https://github.com/user-attachments/assets/5652390a-597e-47f1-ba32-7a28850bc725" />
+
+Übernehmen + OK  
+*Apply + OK*
+
+<img width="425" height="581" alt="image" src="https://github.com/user-attachments/assets/8ebdbb3c-01fe-4832-99f3-f610ebe5f8ba" />
+
+<img width="673" height="763" alt="image" src="https://github.com/user-attachments/assets/1bd31962-f0cb-47cc-a002-de4519704f53" />
+
+<img width="844" height="663" alt="image" src="https://github.com/user-attachments/assets/76d57b5f-5fb6-4dc5-88d1-635b752fb994" />
+
+<img width="839" height="601" alt="image" src="https://github.com/user-attachments/assets/4a8c7e78-0f05-4db4-b402-3f1a05e74e0a" />
+
+<img width="499" height="379" alt="image" src="https://github.com/user-attachments/assets/ae1a4786-d756-446d-a04e-6500c88b7e54" />
+
+<img width="578" height="354" alt="image" src="https://github.com/user-attachments/assets/d49e9640-1c63-4bcf-a443-e2662f91b94c" />
+
+OK + OK
+
+<img width="843" height="760" alt="image" src="https://github.com/user-attachments/assets/8ee9fa79-bc92-436f-acf3-82e1b7e4b3d6" />
+
+<img width="845" height="759" alt="image" src="https://github.com/user-attachments/assets/cb065ec6-af84-4229-88d8-69673b73bb24" />
+
+<img width="598" height="431" alt="image" src="https://github.com/user-attachments/assets/f34aec35-4c1d-4905-b2b7-ab1d4bb8c8d9" />
+
+<img width="400" height="286" alt="image" src="https://github.com/user-attachments/assets/3d7c095d-ceab-4c08-86f0-158abc5216ed" />
+
+<img width="402" height="286" alt="image" src="https://github.com/user-attachments/assets/641d3ff2-c100-4132-885d-800db4f803cc" />
+
+<img width="663" height="767" alt="image" src="https://github.com/user-attachments/assets/c8416f1b-9998-4970-9220-3c329b193274" />
+
+<img width="648" height="762" alt="image" src="https://github.com/user-attachments/assets/0f3695a5-7e72-4a48-a32c-90cfddd13236" />
+
+<img width="657" height="757" alt="image" src="https://github.com/user-attachments/assets/25e23565-6009-437c-9905-f82e29cbf0e9" />
+
+<img width="844" height="763" alt="image" src="https://github.com/user-attachments/assets/b3a422ad-f7ec-4fda-bed1-0749bd361bc1" />
+
+Fertigstellen  
+*Finish*
+
+### Reihenfolge der Netzwerkrichtlinien ändern, falls nötig  
+### *Change the order of network policies if necessary*
+
+<img width="1065" height="425" alt="image" src="https://github.com/user-attachments/assets/1373d71f-ac92-4d88-bcd4-0347513c758a" />
+
+### Testen des Zugriffs  
+### *Testing access*
+
+W11:
+
+<img width="995" height="342" alt="image" src="https://github.com/user-attachments/assets/e00ea05e-0b5b-4d07-a24b-1e2392077a28" />
+
+<img width="979" height="546" alt="image" src="https://github.com/user-attachments/assets/fa9ebdd8-9202-4861-b844-7448bad9d171" />
+
+Die Verbindung wird verweigert (Karl Klammer ist kein Domänen-Admin).  
+#The connection is denied (Karl Klammer is not a domain administrator).*
+
+<img width="1004" height="228" alt="image" src="https://github.com/user-attachments/assets/6f1884e1-ee24-4bb4-a024-a0782977b9aa" />
+
+<img width="468" height="602" alt="image" src="https://github.com/user-attachments/assets/adad1619-e833-4dce-812a-d2e38bb22861" />
+
+<img width="476" height="500" alt="image" src="https://github.com/user-attachments/assets/adf0447b-7d2d-4734-be9d-27f635adc210" />
+
+<img width="991" height="425" alt="image" src="https://github.com/user-attachments/assets/40c18903-fe4a-4217-b62f-4d69b63f340d" />
+
+<img width="974" height="650" alt="image" src="https://github.com/user-attachments/assets/b924c39e-bd8e-4e46-a720-65e6b3ba5f8c" />
+
+<img width="686" height="346" alt="image" src="https://github.com/user-attachments/assets/1542286c-f660-4d93-8825-e42e053ed45f" />
+
+Trenne AdminVPN wieder.  
+*Disconnect AdminVPN again.*
+
+
 
