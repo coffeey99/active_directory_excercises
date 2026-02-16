@@ -23,7 +23,7 @@ Server2:
 Server3:
 192.168.1.3
 
-Server4:
+W11:
 192.168.1.4
 
 Active Directory ist auf DC, Server1, Server2 und Server3 installiert. DC ist Domain Controller, Server1 der repliziende Server.
@@ -67,7 +67,7 @@ Es existieren jeweils zwei Prüfpunkte:
 *Server3:*  
 - IP: `192.168.1.3`  
 
-*Server4:*  
+*W11:*  
 - IP: `192.168.1.4`  
 
 *Active Directory is installed on DC, Server1, Server2, and Server3. DC is the Domain Controller, and Server1 is the replication server.*  
