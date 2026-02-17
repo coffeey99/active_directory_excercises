@@ -294,8 +294,7 @@ Server2 --> Windows Defender Firewall mit erweiterter Sicherheit --> Eingehende 
 
 - Hinweis: CDP (Certificate Distribution Point) und AIA (Authority Information Access) sind Komponenten der Public Key Infrastructure (PKI):  
  - CDP: Gibt den Speicherort der Zertifikatsperrliste (CRL) an, die widerrufene Zertifikate auflistet.  
- - AIA: Enthält Informationen über die Zertifizierungsstelle (CA), die das Zertifikat ausgestellt hat, und bietet oft einen Pfad zum Abrufen des CA-Zertifikats.
-
+ - AIA: Enthält Informationen über die Zertifizierungsstelle (CA), die das Zertifikat ausgestellt hat, und bietet oft einen Pfad zum Abrufen des CA-Zertifikats.  
 
 - *Note: CDP (Certificate Distribution Point) and AIA (Authority Information Access) are components of the Public Key Infrastructure (PKI):*  
 - *CDP: Specifies the location of the certificate revocation list (CRL), which lists revoked certificates.*  
