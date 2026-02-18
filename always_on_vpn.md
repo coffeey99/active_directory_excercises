@@ -475,3 +475,296 @@ Select * from Win32_OperatingSystem where ProductType = '1'
 
 <img width="949" height="877" alt="image" src="https://github.com/user-attachments/assets/cb39909b-1fe7-4b15-aa42-1e61e899bfe2" />
 
+<img width="725" height="678" alt="image" src="https://github.com/user-attachments/assets/fe7029c9-ce33-4756-95e6-952ff4f9c045" />
+
+Schließe den die Gruppenrichtlinienverwaltungskonsole.  
+*Close the Group Policy Management Console.*
+
+DC --> Server-Manager --> Tools --> Zertifizierungsstelle:  
+*DC --> Server Manager --> Tools --> Certification Authority:*
+
+<img width="864" height="470" alt="image" src="https://github.com/user-attachments/assets/77e34003-ad3b-4c24-b4ba-bea4a563c7ae" />
+
+<img width="725" height="456" alt="image" src="https://github.com/user-attachments/assets/b043bdb1-8a15-42a7-9e54-a77bb1b664d2" />
+
+W11:
+
+<img width="775" height="460" alt="image" src="https://github.com/user-attachments/assets/543c50bc-ed61-4e3f-b02f-2ccaf8976bc4" />
+
+<img width="556" height="695" alt="image" src="https://github.com/user-attachments/assets/adb9759f-1f36-41d8-b3a3-dca4db11bca3" />
+
+CMD:
+
+<img width="826" height="192" alt="image" src="https://github.com/user-attachments/assets/a46748a0-d4bb-4b9c-b040-5dda7991e135" />
+
+```powershell
+gpupdate /force
+```
+
+<img width="913" height="133" alt="image" src="https://github.com/user-attachments/assets/8c31c63f-72f8-4175-9d08-af8b45e28c13" />
+
+Hinweis: Falls du bei „gpupdate /force“ die folgende Fehlermeldung erhältst, führe auf dem „DC“ das Skript „NOTFALL_Sysvol_fix.ps1“ aus. Die Datei befindet sich auf GFN-RLAB unter dem Pfad „C:\ISOs\Tools\NOTFALL_Sysvol_fix.ps1“.  
+*Note: If you receive the following error message when running “gpupdate /force”, execute the script “NOTFALL_Sysvol_fix.ps1” on the ‘DC’. The file is located on GFN-RLAB under the path C:\ISOs\Tools\NOTFALL_Sysvol_fix.ps1".*
+
+<img width="1994" height="399" alt="image" src="https://github.com/user-attachments/assets/d7b9267a-0cb3-4a2f-b578-38661095d1b0" />
+
+<img width="835" height="69" alt="image" src="https://github.com/user-attachments/assets/8bb875e9-df84-4b35-b4e2-4aeab27a40c7" />
+
+```powershell
+certlm.msc
+```
+
+Es öffnet sich Zertifikats-Managementkonsole:  
+*The Certificate Management Console opens:*
+
+<img width="1254" height="245" alt="image" src="https://github.com/user-attachments/assets/b9134323-cb05-45bf-8564-ae99d13b3dfc" />
+
+<img width="1276" height="564" alt="image" src="https://github.com/user-attachments/assets/4058f1ed-3089-4b34-a693-d05c2d7818e6" />
+
+### Erstellen der Zertifikatsvorlage für die VPN-User  
+### *Creating the certificate template for VPN users*
+
+DC --> Server-Manager --> Tools --> Zertifizierungsstelle  
+*DC --> Server Manager --> Tools --> Certification Authority*
+
+<img width="881" height="452" alt="image" src="https://github.com/user-attachments/assets/dd3618bb-44a8-45d4-ba4e-dad969188d20" />
+
+<img width="717" height="393" alt="image" src="https://github.com/user-attachments/assets/751a78ac-2b75-4db4-b03c-c53bc580f54e" />
+
+<img width="517" height="691" alt="image" src="https://github.com/user-attachments/assets/dda2f210-5365-4606-be5f-dd9861428475" />
+
+<img width="706" height="442" alt="image" src="https://github.com/user-attachments/assets/5f87a155-22ff-4d9d-a5ac-0abec1f55d46" />
+
+<img width="700" height="441" alt="image" src="https://github.com/user-attachments/assets/5da06868-2884-47f1-8bb9-dc999245ad0f" />
+
+<img width="515" height="692" alt="image" src="https://github.com/user-attachments/assets/148b2380-edd5-4652-b332-9b503c8aa021" />
+
+<img width="513" height="693" alt="image" src="https://github.com/user-attachments/assets/38615cd7-fdb5-408e-8d2c-f93a3f24e414" />
+
+<img width="515" height="690" alt="image" src="https://github.com/user-attachments/assets/545f265b-0194-4df6-aac9-c8b1f8f7cc9a" />
+
+<img width="515" height="696" alt="image" src="https://github.com/user-attachments/assets/abd08e83-d320-4d80-8b7c-2c57d93981b7" />
+
+<img width="513" height="692" alt="image" src="https://github.com/user-attachments/assets/568a8884-1d68-411f-8f84-d4c971846ff2" />
+
+<img width="567" height="302" alt="image" src="https://github.com/user-attachments/assets/d782430b-ec83-42ec-bdb5-c1d7384e3cb3" />
+
+<img width="508" height="696" alt="image" src="https://github.com/user-attachments/assets/901bd63d-febb-4aea-8862-c1f0c2546f99" />
+
+<img width="517" height="395" alt="image" src="https://github.com/user-attachments/assets/d2616072-8b35-4d65-b376-0837529816d7" />
+
+Übernehmen + OK  
+*Apply + OK*
+
+Schließe das Fenster Zertifikatvorlagenkonsole.  
+*Close the Certificate Templates Console window.*
+
+<img width="859" height="461" alt="image" src="https://github.com/user-attachments/assets/e3c263eb-20ed-4a2e-ad5d-82ab46224c3e" />
+
+<img width="724" height="463" alt="image" src="https://github.com/user-attachments/assets/de2c1f7a-5583-4af0-bec4-064152e065de" />
+
+W11:
+
+<img width="528" height="671" alt="image" src="https://github.com/user-attachments/assets/c10f9d06-4f2c-4dc8-9bdc-5cf8ad914b34" />
+
+CMD:
+
+```powershell
+gpupdate /force
+```
+
+<img width="915" height="259" alt="image" src="https://github.com/user-attachments/assets/2c249e6d-62c8-4df7-b35c-8dfedc63dbde" />
+
+```powershell
+gpresult /r
+```
+
+<img width="942" height="422" alt="image" src="https://github.com/user-attachments/assets/8d95960e-4583-4a89-977e-c79fe87739d3" />
+
+<img width="938" height="751" alt="image" src="https://github.com/user-attachments/assets/169f4430-67e6-4938-b235-eaffa4b908b8" />
+
+In der Auflistung der angewendeten Richtlinien muss die Richtlinie „Automatische Zertifikatsregistrierung“ in der Benutzerkonfiguration erscheinen.  
+*The “Automatic Certificate Registration” policy must appear in the list of applied policies in the user configuration.*
+
+### Erstellen der Zertifikatsvorlage für NPS-Server  
+### *Creating the certificate template for NPS servers*
+
+DC --> Server-Manager --> Tools --> Zertifizierungsstelle  
+*DC --> Server Manager --> Tools --> Certification Authority*
+
+Zertifikatsvorlagen --> Rechte Maustaste: Verwalten  
+*Certificate templates --> Right mouse button: Manage*
+
+<img width="952" height="505" alt="image" src="https://github.com/user-attachments/assets/1288a71d-e1fd-4f9c-abda-72d982426852" />
+
+<img width="510" height="694" alt="image" src="https://github.com/user-attachments/assets/d1c4361b-c147-4d82-8abc-ff2fb272e762" />
+
+Füge die Gruppe „NPS-Server“ mit der Berechtigung „Zulassen“ für „Lesen“ und „Registrieren“ hinzu.  
+*Add the “NPS Server” group with “Allow” permission for ‘Read’ and “Register.”*
+
+<img width="515" height="693" alt="image" src="https://github.com/user-attachments/assets/5fcac077-18b6-4cda-9a72-5f67d3a23e37" />
+
+Entferne die Gruppe „RAS und IAS-Server“.  
+*Remove the “RAS and IAS Servers” group.*
+
+<img width="513" height="399" alt="image" src="https://github.com/user-attachments/assets/73789075-d98c-4bd4-9952-c6d6288e6213" />
+
+Übernehmen + OK  
+*Apply + OK*
+
+Zertifizierungsstelle --> Zertifikatvorlagen --> Rechte Maustaste: Neu --> Ausstellende Zertifikatvorlage:  
+*Certification Authority --> Certificate Templates --> Right mouse button: New --> Issuing Certificate Template:*
+
+<img width="719" height="461" alt="image" src="https://github.com/user-attachments/assets/0e42f2e0-4994-4739-a1fc-5856d1497d3f" />
+
+Server1 --> Powershell Administrator:
+
+Führe aus:  
+*run*
+
+```powershell
+gpupdate /force
+```
+
+<img width="1270" height="723" alt="image" src="https://github.com/user-attachments/assets/c7d0c1c4-1d12-49eb-b2a5-9b34a9454cfc" />
+
+Starte den Computer neu (wegen Computerzertifikate)  
+*Restart the computer (due to computer certificates)*
+
+Nach dem Neustart --> Windows Start-Button --> Ausführen --> certlm.msc  
+*After restarting --> Windows Start button --> Run --> certlm.msc*
+
+<img width="960" height="411" alt="image" src="https://github.com/user-attachments/assets/e5b89ea4-f96d-4f84-926f-397a339ad394" />
+
+<img width="778" height="546" alt="image" src="https://github.com/user-attachments/assets/8f340b92-2b74-464e-907a-b2fdb920600f" />
+
+<img width="784" height="531" alt="image" src="https://github.com/user-attachments/assets/b96f8c7c-65a9-4790-a730-97886b335a41" />
+
+<img width="786" height="530" alt="image" src="https://github.com/user-attachments/assets/477baa48-0c86-4b9b-bd57-c510fc63749b" />
+
+Registrieren + Fertigstellen  
+*Register + Finish*
+
+<img width="1239" height="216" alt="image" src="https://github.com/user-attachments/assets/6709b623-d7cb-42ee-a6be-25c5e395428d" />
+
+### Erstellen der Zertifikatsvorlage für VPN-Server  
+### *Creating the certificate template for VPN servers*
+
+DC --> Server-Manager --> Tools --> Zertifizierungsstelle  
+*
+
+Zertifikatsvorlagen --> Rechte Maustaste: Verwalten --> RAS und IAS-Server --> Rechte Maustaste: Vorlage duplizieren:  
+*Certificate templates --> Right mouse button: Manage --> RAS and IAS Server --> Right mouse button: Duplicate template:*
+
+<img width="518" height="701" alt="image" src="https://github.com/user-attachments/assets/8063d6a9-e9e8-42bf-8b8b-4a42d5144f6b" />
+
+<img width="514" height="619" alt="image" src="https://github.com/user-attachments/assets/aeaa453e-4377-49f4-89d0-85da1ce15be3" />
+
+<img width="357" height="510" alt="image" src="https://github.com/user-attachments/assets/43d70735-a6a5-4e7f-9049-67ae02001ea5" />
+
+<img width="462" height="481" alt="image" src="https://github.com/user-attachments/assets/c2288091-7280-4b61-9067-4939ac5bfc78" />
+
+OK + OK
+
+Füge die Gruppe „VPN-Server“ mit den zulassenden Berechtigungen „Lesen“ und „Registrieren“ hinzu
+Entferne die Gruppe „RAS- und IAS-Server“  
+*Add the “VPN Servers” group with the ‘Read’ and “Register” permissions.
+Remove the “RAS and IAS Servers” group.*
+
+<img width="513" height="692" alt="image" src="https://github.com/user-attachments/assets/70dad273-0556-44e2-bd01-b3acc6e03ac0" />
+
+<img width="512" height="691" alt="image" src="https://github.com/user-attachments/assets/cfcf1013-d888-4f13-bc77-b374d1bb40b6" />
+
+<img width="503" height="243" alt="image" src="https://github.com/user-attachments/assets/a7f6cda5-0cbd-4ad8-ae95-969161be7b21" />
+
+Übernehmen + OK  
+*Apply + OK*
+
+Zertifikatsvorlagen --> Rechte Maustaste: Neu --> Ausstellende Zertifikatsvorlage:  
+*Certificate templates --> Right mouse button: New --> Issuing certificate template:*
+
+<img width="723" height="460" alt="image" src="https://github.com/user-attachments/assets/25e174a1-4ce5-48a0-a72a-582395e81b80" />
+
+Wechsle auf „Server2“ und starten ihn neu (wegen Computerzertifikate)  
+*Switch to “Server2” and restart it (due to computer certificates)*
+
+Öffne nach dem Neustart PowerShell als Administrator --> certlm.msc  
+*After restarting, open PowerShell as administrator --> certlm.msc*
+
+<img width="783" height="438" alt="image" src="https://github.com/user-attachments/assets/d90f4426-e4f2-44a6-9545-7b98ce31c653" />
+
+Weiter + Weiter  
+*Next + Next*
+
+<img width="783" height="474" alt="image" src="https://github.com/user-attachments/assets/13891e2d-58fc-4fb7-a133-2773bf3c7f5c" />
+
+<img width="615" height="612" alt="image" src="https://github.com/user-attachments/assets/f7af877f-9e16-4483-8fff-0c3c11b44080" />
+
+<img width="618" height="656" alt="image" src="https://github.com/user-attachments/assets/be539cc0-b1d3-4524-9a34-548c5bd8a8b8" />
+
+Übernehmen + OK  
+*Apply + OK*
+
+Registrieren + Fertigstellen  
+*Register + Finish*
+
+<img width="1104" height="210" alt="image" src="https://github.com/user-attachments/assets/15d02472-5b5a-4209-b734-6d7848046496" />
+
+Server1 --> Server-Manager --> Verwalten --> Rolle und Features hinzufügen --> Weiter --> Weiter --> Weiter  
+*Server1 --> Server Manager --> Manage --> Add Roles and Features --> Next --> Next --> Next*
+
+<img width="745" height="696" alt="image" src="https://github.com/user-attachments/assets/2e997601-5737-4a2d-8b56-1e5f0b7d58eb" />
+
+<img width="518" height="539" alt="image" src="https://github.com/user-attachments/assets/b28c14ac-d6de-4bcd-b4ad-5e635be3155f" />
+
+Weiter --> Weiter --> Installieren --> Schließen  
+*Next --> Next --> Install --> Close*
+
+Server1 --> Server-Manager --> Tools --> Netzwerkrichtlinienserver:  
+*Server1 --> Server Manager --> Tools --> Network Policy Server:*
+
+<img width="486" height="361" alt="image" src="https://github.com/user-attachments/assets/bdce8171-48a6-4ca3-8be7-211b6a6d21a8" />
+
+<img width="504" height="278" alt="image" src="https://github.com/user-attachments/assets/05a59c00-5670-45a8-9d94-9a3f333afb40" />
+<br>
+<img width="495" height="251" alt="image" src="https://github.com/user-attachments/assets/32f07633-055b-4a70-b5fc-74036cb17fca" />
+<br>
+<img width="584" height="357" alt="image" src="https://github.com/user-attachments/assets/f1b12522-a6e4-4bad-9663-a01a0c194e75" />
+
+<img width="561" height="721" alt="image" src="https://github.com/user-attachments/assets/d1da8862-9c96-46d3-b3fb-765a9b0d19c6" />
+
+<img width="709" height="454" alt="image" src="https://github.com/user-attachments/assets/b11f301e-9ed2-49b7-8b8b-c109f87569ac" />
+
+<img width="840" height="761" alt="image" src="https://github.com/user-attachments/assets/5715cbd1-a290-4a1f-97a6-a5ecc99f498e" />
+
+<img width="842" height="654" alt="image" src="https://github.com/user-attachments/assets/d79e0c78-6a0c-40f7-b7e6-0dbbb09b7d66" />
+
+<img width="841" height="440" alt="image" src="https://github.com/user-attachments/assets/74bdc01c-9c90-4f24-a160-fb38f80f044b" />
+
+<img width="492" height="381" alt="image" src="https://github.com/user-attachments/assets/a194a6a1-f664-4145-a4d7-e7e75e33b4de" />
+<br>
+<img width="560" height="309" alt="image" src="https://github.com/user-attachments/assets/2ad1a8a3-b0f3-49eb-b60f-592f76e739ed" />
+<br>
+<img width="841" height="205" alt="image" src="https://github.com/user-attachments/assets/baff21a5-5eb5-4095-8dec-d14b41f5d812" />
+
+<img width="844" height="762" alt="image" src="https://github.com/user-attachments/assets/059ee0da-10e9-4f47-862c-4202ddfec9a6" />
+
+<img width="843" height="435" alt="image" src="https://github.com/user-attachments/assets/87c4fc16-9280-40b5-ac40-da9d82bdf904" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
