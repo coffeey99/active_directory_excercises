@@ -751,6 +751,161 @@ Server1 --> Server-Manager --> Tools --> Netzwerkrichtlinienserver:
 
 <img width="843" height="435" alt="image" src="https://github.com/user-attachments/assets/87c4fc16-9280-40b5-ac40-da9d82bdf904" />
 
+<img width="829" height="422" alt="image" src="https://github.com/user-attachments/assets/6c389fbd-d991-4d77-adbe-b1d46d1bcaf0" />
+
+<img width="534" height="488" alt="image" src="https://github.com/user-attachments/assets/029914f1-bcf3-495a-9da7-820a8c7d000f" />
+
+<img width="528" height="485" alt="image" src="https://github.com/user-attachments/assets/72c99cbe-d4bd-4083-ba9e-cd758f0da5de" />
+
+<img width="396" height="367" alt="image" src="https://github.com/user-attachments/assets/837736b2-a16c-4153-9f94-bf9d4c56a722" />
+<br>
+<img width="533" height="491" alt="image" src="https://github.com/user-attachments/assets/dba2fc8d-4432-46b2-8e41-113d13b06d04" />
+
+OK --> Weiter --> Weiter --> Weiter --> Fertigstellen  
+*OK --> Next --> Next --> Next --> Finish*
+
+<img width="1039" height="333" alt="image" src="https://github.com/user-attachments/assets/dee0b506-5436-4b86-b390-d8c75c77c488" />
+
+Server2 --> Server-Manager --> Tools --> Routing und RAS:  
+*Server2 --> Server Manager --> Tools --> Routing and RAS:*
+
+<img width="623" height="496" alt="image" src="https://github.com/user-attachments/assets/ed9fa729-7507-4ca2-bccd-3b310668cf3a" />
+
+<img width="496" height="272" alt="image" src="https://github.com/user-attachments/assets/e45b6f64-2752-40cd-ac30-310ac89add85" />
+<br>
+<img width="474" height="363" alt="image" src="https://github.com/user-attachments/assets/eccc4105-a777-42d8-bf23-30782a1aa089" />
+<br>
+<img width="399" height="199" alt="image" src="https://github.com/user-attachments/assets/157d2f9f-5c9d-4f77-be54-f890931be8c4" />
+<br>
+OK + OK
+<img width="492" height="272" alt="image" src="https://github.com/user-attachments/assets/a9a83a9a-c408-40e4-bec8-dcdf190a9b83" />
+<br>
+<img width="468" height="408" alt="image" src="https://github.com/user-attachments/assets/d35b80ae-cd7f-4982-8189-4922dec207b7" />
+
+<img width="491" height="708" alt="image" src="https://github.com/user-attachments/assets/2ecb4a02-c43c-4259-a310-5f9ca6d30c0c" />
+
+<img width="508" height="258" alt="image" src="https://github.com/user-attachments/assets/167c147b-5368-4a9f-a485-5e1e938fc4a7" />
+<br>
+<img width="506" height="183" alt="image" src="https://github.com/user-attachments/assets/c9b2db90-370d-4837-8f75-998710519cfa" />
+<br>
+Übernehmen + OK  
+*Apply + OK*
+
+### Netzwerkkonfiguration für „W11“  
+### *Network configuration for “W11”*
+
+<img width="318" height="503" alt="image" src="https://github.com/user-attachments/assets/4b090732-9a6f-4f9b-93cc-063c98297024" />
+<br>
+<img width="560" height="669" alt="image" src="https://github.com/user-attachments/assets/374c5d57-62dc-4833-94d4-cd0ef8b6eada" />
+
+### Konfiguration von „Server3“ zum DNS-Server  
+### *Configuring “Server3” as the DNS server*
+
+```powershell
+
+# -------------------------------------------------
+# VM-Netzwerkadapter prüfen und ggf. hinzufügen
+# -------------------------------------------------
+
+if (-not (Get-VMNetworkAdapter -VMName "Server3" -Name "VPNAdapter" -ErrorAction SilentlyContinue)) {
+    Add-VMNetworkAdapter -VMName "Server3" -SwitchName "vpn" -Name "VPNAdapter" | Out-Null
+}
+
+# -------------------------------------------------
+# Anmeldeinformationen erstellen
+# -------------------------------------------------
+
+$SecurePwd  = ConvertTo-SecureString "Kennw0rt!" -AsPlainText -Force
+$Credential = New-Object System.Management.Automation.PSCredential ("gfnlab\administrator", $SecurePwd)
+
+# -------------------------------------------------
+# Konfiguration innerhalb der VM (PowerShell Direct)
+# -------------------------------------------------
+
+Invoke-Command -VMName "Server3" -Credential $Credential -ScriptBlock {
+
+    # Netzwerkadapter umbenennen
+    Rename-NetAdapter -Name "Ethernet 2" -NewName "VPNAdapter" -ErrorAction SilentlyContinue
+
+    # IP-Adresse setzen
+    if (-not (Get-NetIPAddress -InterfaceAlias "VPNAdapter" -ErrorAction SilentlyContinue)) {
+        New-NetIPAddress `
+            -IPAddress "172.16.0.3" `
+            -PrefixLength 24 `
+            -InterfaceAlias "VPNAdapter"
+    }
+
+    # DNS-Server setzen
+    Set-DnsClientServerAddress `
+        -InterfaceAlias "VPNAdapter" `
+        -ServerAddresses "192.168.1.200"
+
+    # DNS-Rolle installieren (falls noch nicht vorhanden)
+    if (-not (Get-WindowsFeature DNS).Installed) {
+        Install-WindowsFeature DNS -IncludeManagementTools
+    }
+
+    # Forward-Lookup-Zone erstellen
+    if (-not (Get-DnsServerZone -Name "gfnlab.test" -ErrorAction SilentlyContinue)) {
+        Add-DnsServerPrimaryZone `
+            -Name "gfnlab.test" `
+            -ZoneFile "gfnlab.test.dns" `
+            -DynamicUpdate None
+    }
+
+    # Reverse-Lookup-Zone erstellen
+    if (-not (Get-DnsServerZone -Name "0.0.16.172.in-addr.arpa" -ErrorAction SilentlyContinue)) {
+        Add-DnsServerPrimaryZone `
+            -NetworkId "172.16.0.0/24" `
+            -ZoneFile "0.0.16.172.dns"
+    }
+
+    # A-Record für Server2 anlegen
+    if (-not (Get-DnsServerResourceRecord -ZoneName "gfnlab.test" -Name "server2" -ErrorAction SilentlyContinue)) {
+        Add-DnsServerResourceRecordA `
+            -Name "server2" `
+            -ZoneName "gfnlab.test" `
+            -IPv4Address "172.16.0.1" `
+            -TimeToLive 01:00:00 `
+            -CreatePtr
+    }
+
+}
+```
+
+### Erstellen und testen der VPN-Verbindung  
+### *Creating and testing the VPN connection*
+
+W11 --> als KK anmelden --> Einstellung: Netzwerk und Internet --> VPN:  
+*W11 --> Log in as KK --> Settings: Network and Internet --> VPN:*
+
+<img width="473" height="779" alt="image" src="https://github.com/user-attachments/assets/fcec0f60-1970-4bd1-8e6c-20ebd634df61" />
+
+<img width="974" height="758" alt="image" src="https://github.com/user-attachments/assets/809310e3-da39-4595-a5f7-a5381cca7bbd" />
+
+<img width="591" height="648" alt="image" src="https://github.com/user-attachments/assets/b92d49e7-7885-4683-b408-3052ca9178dd" />
+
+<img width="898" height="545" alt="image" src="https://github.com/user-attachments/assets/4690e6fb-47b5-468d-8122-b566d161d886" />
+
+<img width="440" height="538" alt="image" src="https://github.com/user-attachments/assets/318f28c8-fa79-40e4-8850-7cd4bf7f7c9e" />
+
+<img width="468" height="706" alt="image" src="https://github.com/user-attachments/assets/ae8de966-4eb3-4e79-8301-7ac6697502dd" />
+
+<img width="464" height="695" alt="image" src="https://github.com/user-attachments/assets/63dfd113-a6f2-4409-84d4-e2c1a6d26fc8" />
+
+OK + OK + OK
+
+<img width="591" height="476" alt="image" src="https://github.com/user-attachments/assets/696bf8db-196b-43b4-b19c-bf798612d349" />
+
+<img width="574" height="451" alt="image" src="https://github.com/user-attachments/assets/d6bd41f1-aa47-49d4-9d6c-bf693d94bcd6" />
+
+<img width="979" height="246" alt="image" src="https://github.com/user-attachments/assets/78f5a27b-cb63-4843-81cc-968b74659e20" />
+
+Hinweis: Falls die Verbindung fehlschlägt mit der Meldung, dass der Name nicht aufgelöst werden könnte, sollte man die A-Record in DNS-Server
+löschen und manuell wieder eintragen. Das hat mir bei geholfen und danach war die VPN-Verbindung hergestellt.  
+*Note: If the connection fails with a message stating that the name could not be resolved, you should delete the A record in the DNS server
+and re-enter it manually. This helped me, and the VPN connection was then established.*
+
 
 
 
